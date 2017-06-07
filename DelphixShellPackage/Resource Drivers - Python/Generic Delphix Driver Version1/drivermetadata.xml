@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Driver Name="DelphixDriver" Version="2.0.0" MainClass="driver.DelphixDriver" Description="Driver description">
+    <Layout>
+        <Category Name="Delphix">
+            <Command Name="provision_vdb" DisplayName="Create Virtual DataBase" Description="Create VDB from dSource"
+                     Tags="">
+                <Parameters>
+                    <Parameter Name="source_db_name" Type="String" Mandatory="True" DisplayName="Source dSource Database"
+                               DefaultValue="" Description=""/>
+                    <Parameter Name="target_db_name" Type="String" Mandatory="True" DisplayName="Target VDB Database"
+                               DefaultValue="" Description=""/>
+                    <Parameter Name="source_group_name" Type="String" Mandatory="True"
+                               DisplayName="Source Database Group" DefaultValue="Default Group" Description=""/>
+                    <Parameter Name="target_group_name" Type="String" Mandatory="True"
+                               DisplayName="Target Database Group" DefaultValue="Default Group" Description=""/>
+                    <Parameter Name="timestamp" Type="String" Mandatory="True" DisplayName="Bookmark Time Stamp"
+                               DefaultValue="Latest" Description=""/>
+                    <Parameter Name="vdb_type" Type="String" Mandatory="True" DisplayName="Target VDB Database Type"
+                               DefaultValue="mssql" Description=""/>
+                </Parameters>
+            </Command>
+            <Command Name="delete_vdb" DisplayName="Delete Virtual DataBase" Description="Delete VDB or dSource"
+                     Tags="">
+                <Parameters>
+                    <Parameter Name="vdb_name" Type="String" Mandatory="True" DisplayName="Database Name"
+                               DefaultValue="" Description=""/>
+                    <Parameter Name="group_name" Type="String" Mandatory="True" DisplayName="Database Group"
+                               DefaultValue="Default Group" Description=""/>
+                </Parameters>
+            </Command>
+            <Command Name="refresh_vdb" DisplayName="Refesh Virtual DataBase" Description="" Tags="">
+                <Parameters>
+                    <Parameter Name="group_name" Type="String" Mandatory="True" DisplayName="Database Group"
+                               DefaultValue="" Description=""/>
+                    <Parameter Name="vdb_name" Type="String" Mandatory="True" DisplayName="Target Database Name"
+                               DefaultValue="" Description=""/>
+                </Parameters>
+            </Command>
+            <Command Name="restore_vdb" DisplayName="Restore Virtual DataBase" Description="" Tags="">
+                <Parameters>
+                    <Parameter Name="group_name" Type="String" Mandatory="True" DisplayName="Database Group"
+                               DefaultValue="" Description=""/>
+                    <Parameter Name="vdb_name" Type="String" Mandatory="True" DisplayName="Target Database Name"
+                               DefaultValue="" Description=""/>
+                    <Parameter Name="timestamp" Type="String" Mandatory="True" DisplayName="Time Stamp"
+                               DefaultValue="" Description=""/>
+                </Parameters>
+            </Command>
+        </Category>
+    </Layout>
+</Driver>

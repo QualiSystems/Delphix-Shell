@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DataModelInfo xmlns="http://schemas.qualisystems.com/ResourceManagement/DataModelSchema.xsd">
+    <Attributes>
+        <AttributeInfo Name="Address" Description="" Type="String" DefaultValue="" IsReadOnly="false">
+            <Rules Override="false">
+                <Rule Name="Configuration"/>
+            </Rules>
+        </AttributeInfo>
+        <AttributeInfo Name="User" Description="" Type="String" DefaultValue="" IsReadOnly="false">
+            <Rules Override="false">
+                <Rule Name="Configuration"/>
+            </Rules>
+        </AttributeInfo>
+        <AttributeInfo Name="Password" Description="" Type="Password" DefaultValue="" IsReadOnly="false">
+            <Rules Override="false">
+                <Rule Name="Configuration"/>
+            </Rules>
+        </AttributeInfo>
+        <AttributeInfo Name="Namespace" Description="" Type="String" DefaultValue="DOMAIN" IsReadOnly="false">
+            <Rules Override="false">
+                <Rule Name="Configuration"/>
+            </Rules>
+        </AttributeInfo>
+    </Attributes>
+
+    <ResourceFamilies>
+        <ResourceFamily Name="Delphix" Description="" IsSearchable="true">
+            <AttachedAttributes/>
+            <AttributeValues/>
+            <Models>
+                <ResourceModel Name="Delphix Engine" ImagePath="delphix.jpg" Description="" SupportsConcurrentCommands="true">
+                    <AttachedAttributes>
+                        <AttachedAttribute Name="User" IsOverridable="true" IsLocal="true">
+                            <AllowedValues/>
+                        </AttachedAttribute>
+                        <AttachedAttribute Name="Password" IsOverridable="true" IsLocal="true">
+                            <AllowedValues/>
+                        </AttachedAttribute>
+                        <AttachedAttribute Name="Address" IsOverridable="true" IsLocal="true">
+                            <AllowedValues/>
+                        </AttachedAttribute>
+                        <AttachedAttribute Name="Namespace" IsOverridable="true" IsLocal="true">
+                            <AllowedValues/>
+                        </AttachedAttribute>
+                    </AttachedAttributes>
+                    <AttributeValues>
+                        <AttributeValue Name="Address" Value=""/>
+                        <AttributeValue Name="User" Value=""/>
+                        <AttributeValue Name="Password" Value=""/>
+                        <AttributeValue Name="Namespace" Value="DOMAIN"/>
+                    </AttributeValues>
+                    <ParentModels/>
+                    <Drivers>
+                        <DriverName>Generic Delphix Driver Version1</DriverName>
+                    </Drivers>
+                    <Scripts/>
+                </ResourceModel>
+            </Models>
+            <Categories/>
+        </ResourceFamily>
+    </ResourceFamilies>
+    <DriverDescriptors/>
+    <ScriptDescriptors/>
+</DataModelInfo>
