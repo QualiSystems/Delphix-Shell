@@ -35,6 +35,9 @@ class DelphixClient(object):
         return self._find_resource_by_attr(collection=resources, attr_value=name)
 
     def get_env_by_ip(self, ip_addr):
+        # isn't working for now
+        # ipdb > web.host.get_all(client._engine)[0]._address
+
         resources = self._get_all_resources(web.environment)
         return self._find_resource_by_attr(collection=resources, attr_value=ip_addr)
 
