@@ -41,7 +41,8 @@ class ProvisionVBDOperation(BaseOperation):
 
         target_group = client.get_group(target_group_name)
         target_ip = self._get_target_ip_addr(cloudshell_api=cloudshell_api, reservation_id=reservation_id)
-        env = client.get_env_by_ip(ip_addr=target_ip)
+        env_host = client.get_host_by_ip(ip_addr=target_ip)
+        env = client.get_env_by_host(host_ref=env_host.reference)
 
         client.provision_vdb(env=env,
                              group=target_group,

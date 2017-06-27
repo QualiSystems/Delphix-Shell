@@ -58,12 +58,23 @@ class DelphixClient(object):
         resources = self._get_all_resources(web.environment)
         return self._find_resource_by_attr(collection=resources, attr_value=name)
 
-    def get_env_by_ip(self, ip_addr):
-        # isn't working for now
-        # ipdb > web.host.get_all(client._engine)[0]._address
+    def get_env_by_host(self, host_ref):
+        """Get Delphix environment by its host reference
 
+        :param str host_ref: host reference
+        :rtype: delphixpy.v1_6_0.web.vo.Environment
+        """
         resources = self._get_all_resources(web.environment)
-        return self._find_resource_by_attr(collection=resources, attr_value=ip_addr)
+        return self._find_resource_by_attr(collection=resources, attr_value=host_ref, attr_name="host")
+
+    def get_host_by_ip(self, ip_addr):
+        """Get Delphix host by its IP Address
+
+        :param str ip_addr: Delphix environment IP address
+        :rtype: delphixpy.v1_6_0.web.vo.Host
+        """
+        resources = self._get_all_resources(web.host)
+        return self._find_resource_by_attr(collection=resources, attr_value=ip_addr, attr_name="address")
 
     def get_repository(self, repo_type, env_name):
         """Get

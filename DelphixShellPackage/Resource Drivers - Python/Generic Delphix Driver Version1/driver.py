@@ -89,7 +89,7 @@ if __name__ == "__main__":
     ctx.reservation.reservation_id = "2b7885b8-5d44-4080-9463-e08619ffa79f"
     ctx.resource = Context()
     ctx.resource.attributes = {
-        "address": "192.168.85.30:8888",
+        "address": "192.168.65.63:8888",
         # "address": "localhost:8008",
         "user": "delphix_admin",
         "password": "Quali123",
