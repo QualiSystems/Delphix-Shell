@@ -4,7 +4,7 @@ from cloudshell.delphix.operations.base import BaseOperation
 
 
 class AutoloadOperation(BaseOperation):
-
     def run(self):
-        self.get_delphix_client()  # verify set Delphix engine configuration is correct
+        """Verify that Delphix engine configuration is correct"""
+        self.get_delphix_client()
         return AutoLoadDetails([], [])

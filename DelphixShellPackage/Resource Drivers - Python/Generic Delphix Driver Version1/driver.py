@@ -19,6 +19,12 @@ class DelphixDriver(ResourceDriverInterface):
         pass
 
     def get_inventory(self, context):
+        """Return device structure with all standard attributes
+
+        :param ResourceCommandContext context: ResourceCommandContext object with all Resource Attributes inside
+        :return: response
+        :rtype: str
+        """
         logger = driver_helper.get_logger_with_thread_id(context)
         engine_config = parse_delphix_resource(context)
         autoload_operation = AutoloadOperation(engine_conf=engine_config,
@@ -68,41 +74,42 @@ class DelphixDriver(ResourceDriverInterface):
         restore_operation.run(vdb_name=vdb_name, group_name=group_name, timestamp=timestamp)
 
 
-# if __name__ == "__main__":
-#     import mock
-#     from cloudshell.api.cloudshell_api import CloudShellAPISession
-#
-#     driver_helper = mock.MagicMock()
-#
-#     class Context(object):
-#         pass
-#
-#     driver = DelphixDriver()
-#     ctx = Context()
-#     ctx.reservation = Context()
-#     ctx.reservation.reservation_id = "2b7885b8-5d44-4080-9463-e08619ffa79f"
-#     ctx.resource = Context()
-#     ctx.resource.attributes = {
-#         "address": "192.168.85.18:8888",
-#         "user": "delphix_admin",
-#         "password": "Quali123",
-#         "namespace": "DOMAIN"
-#     }
-#
-#     def get_api(ctx):
-#         return CloudShellAPISession(host="192.168.85.18",
-#                                     token_id="",
-#                                     username="admin",
-#                                     password="admin",
-#                                     domain="GLOBAL")
-#
-#     driver_helper.get_api = get_api
-#     # print driver.get_inventory(context=ctx)
-#     driver.provision_vdb(context=ctx,
-#                          target_db_name="testAntTargetNewDB1",
-#                          source_db_name="Quali1",
-#                          source_group_name="Default Group",
-#                          target_group_name="testAntGroup",
-#                          timestamp="latest",
-#                          vdb_type="mssql")
-#                          vdb_type="mssql")
+if __name__ == "__main__":
+    import mock
+    from cloudshell.api.cloudshell_api import CloudShellAPISession
+
+    driver_helper = mock.MagicMock()
+
+    class Context(object):
+        pass
+
+    driver = DelphixDriver()
+    ctx = Context()
+    ctx.reservation = Context()
+    ctx.reservation.reservation_id = "2b7885b8-5d44-4080-9463-e08619ffa79f"
+    ctx.resource = Context()
+    ctx.resource.attributes = {
+        "address": "192.168.85.30:8888",
+        # "address": "localhost:8008",
+        "user": "delphix_admin",
+        "password": "Quali123",
+        "namespace": "DOMAIN"
+    }
+
+    def get_api(ctx):
+        return mock.MagicMock()
+        return CloudShellAPISession(host="192.168.65.63",
+                                    token_id="",
+                                    username="admin",
+                                    password="admin",
+                                    domain="GLOBAL")
+
+    driver_helper.get_api = get_api
+    # print driver.get_inventory(context=ctx)
+    driver.provision_vdb(context=ctx,
+                         target_db_name="testAntTargetNewDB1111",
+                         source_db_name="Quali122",
+                         source_group_name="Default Group",
+                         target_group_name="testAntGroup",
+                         timestamp="latest",
+                         vdb_type="mssql")

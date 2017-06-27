@@ -7,6 +7,11 @@ class DelphixEngineConfig(object):
 
 
 def parse_delphix_resource(context):
+    """Parse CloudShell context into DelphixEngineConfig model
+
+    :param context:
+    :rtype: DelphixEngineConfig
+    """
     attrs = context.resource.attributes
     resource = DelphixEngineConfig(address=attrs["address"],
                                    user=attrs["user"],
